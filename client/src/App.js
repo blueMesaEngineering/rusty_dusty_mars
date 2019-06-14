@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap/Navbar";
 import logo from "./logo.svg";
 import "./App.css";
 import "../node_modules/react-vis/dist/style.css";
@@ -51,24 +52,94 @@ class App extends Component {
     );
   }
 
+  renderNavbar() {
+    return (
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Dank memes
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+  }
+
   renderHeader() {
     return (
-      <header className="masthead mb-auto">
-        <div className="inner">
-          <h3 className="masthead-brand">Cover</h3>
-          <nav className="nav nav-masthead justify-content-center">
-            <a className="nav-link active" href="#">
-              Home
-            </a>
-            <a className="nav-link" href="#">
-              Features
-            </a>
-            <a className="nav-link" href="#">
-              Contact
-            </a>
-          </nav>
-        </div>
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <a class="navbar-brand" href="#">
+            Fixed navbar
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" />
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Link
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                >
+                  Disabled
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </header>
+    );
+  }
+
+  renderFooter() {
+    return (
+      <footer className="mastfoot mt-auto">
+        <div className="inner">
+          <p>
+            <a href="https://getbootstrap.com/">Bootstrap</a>.
+          </p>
+        </div>
+      </footer>
     );
   }
 
@@ -95,13 +166,7 @@ class App extends Component {
               </a>
             </p>
           </main>
-          <footer className="mastfoot mt-auto">
-            <div className="inner">
-              <p>
-                <a href="https://getbootstrap.com/">Bootstrap</a>.
-              </p>
-            </div>
-          </footer>
+          {this.renderFooter()}
         </div>
       </div>
     );
