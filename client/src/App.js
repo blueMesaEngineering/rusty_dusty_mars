@@ -133,11 +133,9 @@ class App extends Component {
 
   renderFooter() {
     return (
-      <footer className="mastfoot mt-auto">
-        <div className="inner">
-          <p>
-            <a href="https://getbootstrap.com/">Bootstrap</a>.
-          </p>
+      <footer class="footer mt-auto py-3">
+        <div class="container">
+          <span class="text-muted">Place sticky footer content here.</span>
         </div>
       </footer>
     );
@@ -150,10 +148,8 @@ class App extends Component {
       <div className="App">
         <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           {this.renderHeader()}
-          <main role="main" className="inner cover">
-            <h1 className="cover-heading">
-              React with Bootstrap and React-Vis
-            </h1>
+          <main role="main" class="flex-shrink-0">
+            <h1 class="mt-5">React with Bootstrap and React-Vis</h1>
             {this.renderDatapoints()}
             <p className="lead">
               Test of React-JS on a Bootstrap Jumbotron with React-vis Data to
