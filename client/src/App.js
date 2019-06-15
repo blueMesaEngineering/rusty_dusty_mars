@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Math, Component } from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap/Navbar";
 import logo from "./logo.svg";
 import "./App.css";
@@ -8,6 +8,7 @@ import {
   VerticalBarSeries,
   VerticalGridLines,
   HorizontalGridLines,
+  ArcSeries,
   XAxis,
   YAxis,
   LineSeries,
@@ -33,6 +34,35 @@ class App extends Component {
   renderDatapoints() {
     const { datapoints } = this.state;
 
+    const myData = [
+      { angle0: 0, angle: 3.1415926 / 4, opacity: 0.2, radius: 2, radius0: 1 },
+      {
+        angle0: 3.1415926 / 4,
+        angle: (2 * 3.1415926) / 4,
+        radius: 3,
+        radius0: 0
+      },
+      {
+        angle0: (2 * 3.1415926) / 4,
+        angle: (3 * 3.1415926) / 4,
+        radius: 2,
+        radius0: 0
+      },
+      {
+        angle0: (3 * 3.1415926) / 4,
+        angle: (4 * 3.1415926) / 4,
+        radius: 2,
+        radius0: 0
+      },
+      {
+        angle0: (4 * 3.1415926) / 4,
+        angle: (5 * 3.1415926) / 4,
+        radius: 2,
+        radius0: 0
+      },
+      { angle0: 0, angle: (5 * 3.1415926) / 4, radius: 1.1, radius0: 0.8 }
+    ];
+
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
         <XYPlot height={200} width={200}>
@@ -47,6 +77,15 @@ class App extends Component {
           <VerticalGridLines />
           <HorizontalGridLines />
           <MarkSeries data={datapoints} />
+        </XYPlot>
+        <XYPlot xDomain={[-5, 5]} yDomain={[-5, 5]} width={300} height={300}>
+          <ArcSeries
+            animation
+            radiusType={"literal"}
+            center={{ x: -2, y: 2 }}
+            data={myData}
+            colorType={"literal"}
+          />
         </XYPlot>
       </div>
     );
