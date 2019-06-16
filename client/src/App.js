@@ -1,6 +1,5 @@
 import React, { Math, Component } from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap/Navbar";
-import logo from "./logo.svg";
 import "./App.css";
 import "../node_modules/react-vis/dist/style.css";
 import {
@@ -35,57 +34,64 @@ class App extends Component {
     const { datapoints } = this.state;
 
     const myData = [
-      { angle0: 0, angle: 3.1415926 / 4, opacity: 0.2, radius: 2, radius0: 1 },
+      {
+        angle0: 0,
+        angle: 3.1415926 / 4,
+        opacity: 0.2,
+        radius: 10,
+        radius0: 60
+      },
       {
         angle0: 3.1415926 / 4,
         angle: (2 * 3.1415926) / 4,
-        radius: 3,
-        radius0: 0
+        opacity: 0.4,
+        radius: 30,
+        radius0: 50
       },
       {
         angle0: (2 * 3.1415926) / 4,
         angle: (3 * 3.1415926) / 4,
-        radius: 2,
-        radius0: 0
+        opacity: 0.6,
+        radius: 20,
+        radius0: 75
       },
       {
         angle0: (3 * 3.1415926) / 4,
         angle: (4 * 3.1415926) / 4,
-        radius: 2,
-        radius0: 0
+        opacity: 0.8,
+        radius: 10,
+        radius0: 30
       },
       {
         angle0: (4 * 3.1415926) / 4,
         angle: (5 * 3.1415926) / 4,
-        radius: 2,
-        radius0: 0
+        opacity: 1,
+        radius: 10,
+        radius0: 20
       },
-      { angle0: 0, angle: (5 * 3.1415926) / 4, radius: 1.1, radius0: 0.8 }
+      { angle0: 0, angle: (5 * 3.1415926) / 4, radius: 0, radius0: 5 }
     ];
 
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <XYPlot height={200} width={200}>
-          <VerticalBarSeries data={datapoints} />
-          <VerticalGridLines />
-          <HorizontalGridLines />
-        </XYPlot>
-        <XYPlot height={200} width={200}>
+        <XYPlot height={225} width={225}>
           <LineSeries data={datapoints} />
         </XYPlot>
-        <XYPlot height={200} width={200}>
+        <XYPlot height={225} width={225}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <MarkSeries data={datapoints} />
         </XYPlot>
-        <XYPlot xDomain={[-5, 5]} yDomain={[-5, 5]} width={300} height={300}>
+        <XYPlot xDomain={[-5, 5]} yDomain={[-5, 5]} width={225} height={225}>
           <ArcSeries
             animation
             radiusType={"literal"}
-            center={{ x: -2, y: 2 }}
+            center={{ x: 0, y: 0 }}
             data={myData}
             colorType={"literal"}
           />
+          <XAxis />
+          <YAxis />
         </XYPlot>
       </div>
     );
@@ -174,15 +180,13 @@ class App extends Component {
     return (
       <footer class="footer mt-auto py-3">
         <div class="container">
-          <span class="text-muted">Place sticky footer content here.</span>
+          <span class="text-muted">Sticky footer.</span>
         </div>
       </footer>
     );
   }
 
   render() {
-    const { datapoints } = this.state;
-
     return (
       <div className="App">
         <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
