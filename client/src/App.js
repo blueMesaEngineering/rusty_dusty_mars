@@ -4,7 +4,6 @@ import "./App.css";
 import "../node_modules/react-vis/dist/style.css";
 import {
   XYPlot,
-  VerticalBarSeries,
   VerticalGridLines,
   HorizontalGridLines,
   ArcSeries,
@@ -13,6 +12,7 @@ import {
   LineSeries,
   MarkSeries
 } from "react-vis";
+import Piechart from "./componentPiechart";
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class App extends Component {
 
   renderDatapoints() {
     const { datapoints } = this.state;
+    var Piecharts = new Piechart();
 
     const myData = [
       {
@@ -82,6 +83,7 @@ class App extends Component {
           <HorizontalGridLines />
           <MarkSeries data={datapoints} />
         </XYPlot>
+        {Piecharts.renderPiecharts()}
         <XYPlot xDomain={[-5, 5]} yDomain={[-5, 5]} width={225} height={225}>
           <ArcSeries
             animation

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  angle0: 9.99
+  angle: 9.99
+  opacity: 9.99
+  radius: 9.99
+  radius0: 9.99
+
+two:
+  angle0: 9.99
+  angle: 9.99
+  opacity: 9.99
+  radius: 9.99
+  radius0: 9.99
